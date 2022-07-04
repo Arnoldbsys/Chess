@@ -17,7 +17,10 @@ public class Queen extends ChessPiece {
 
             if (line - toLine == column - toColumn || (line + column == toLine + toColumn)
             || line - toLine == 0 || column - toColumn == 0){
-                return true;
+                if (!chessBoard.isJumpOverFigure(line, column, toLine, toColumn)){  //не перепрыгивает через другие
+                    return chessBoard.canEatOrStay(toLine, toColumn);
+                }
+                else  return false;
             }
 
             else return  false;

@@ -12,14 +12,13 @@ public class Bishop extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-
         if (isInTheBoardAndMove(chessBoard, line, column, toLine, toColumn)) {
-
-            if (line - toLine == column - toColumn ||
-                    (line + column == toLine + toColumn)){
-                return true;
+            if (line - toLine == column - toColumn || (line + column == toLine + toColumn)){
+                if (!chessBoard.isJumpOverFigure(line, column, toLine, toColumn)){  //не перепрыгивает через другие
+                    return chessBoard.canEatOrStay(toLine, toColumn);
+                }
+                else  return false;
             }
-
             else return  false;
         }
         else return false;

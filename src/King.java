@@ -21,7 +21,7 @@ public class King extends ChessPiece {
                 if (Math.abs(line - toLine) > 1 || Math.abs(column - toColumn) > 1 ){
                     return false;
                 }
-                else return true;
+                else return chessBoard.canEatOrStay(toLine, toColumn);
             }
 
             else return  false;

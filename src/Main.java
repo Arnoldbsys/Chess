@@ -56,8 +56,10 @@ public class Main {
         board.printBoard();
         while (true) {
             String s = scanner.nextLine();
-            if (s.equals("exit")) break;
-            else if (s.equals("replay")) {
+            if (s.equals("e")) break;
+            else if (s.equals("p")) {
+                board.printBoard();
+            } else if (s.equals("r")) {
                 System.out.println("Заново");
                 board = buildBoard();
                 board.printBoard();
@@ -76,7 +78,7 @@ public class Main {
                     } else {
                         System.out.println("Рокировка не удалась");
                     }
-                } else if (s.contains("move")) {
+                } else if (s.contains("m")) {
                     String[] a = s.split(" ");
                     try {
                         int line = Integer.parseInt(a[1]);
